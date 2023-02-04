@@ -1,0 +1,24 @@
+name: "Parch build Action"
+description: "build Parch ISOs per release and Upload built ISOs to The release."
+inputs:
+  gh_apikey:
+    description: "github apikey"
+    required: true
+    default: ${{ secrets.GITHUB_TOKEN }}
+  release_tag_name:
+    description: "release tag name"
+    required: true
+    default: ${{ github.ref_name }}
+  repo_name:
+    description: "repository name"
+    required: true
+    default: ${{ github.event.repository.name }}
+  archiso_options:
+    description: "arch iso custom options"
+    required: false
+outputs:
+  md5hash:
+    description: "iso md5sum hashs"
+runs:
+  using: "docker"
+  image: "Dockerfile"
