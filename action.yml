@@ -4,15 +4,12 @@ inputs:
   gh_apikey:
     description: "github apikey"
     required: true
-    default: ${{ secrets.GITHUB_TOKEN }}
   release_tag_name:
     description: "release tag name"
     required: true
-    default: ${{ github.ref_name }}
   repo_name:
     description: "repository name"
     required: true
-    default: ${{ github.event.repository.name }}
   archiso_options:
     description: "arch iso custom options"
     required: false

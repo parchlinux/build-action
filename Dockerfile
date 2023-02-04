@@ -4,7 +4,7 @@ FROM archlinux:latest
 RUN pacman -Syu \
     archiso \
     base \
-    basedevel \
+    base-devel \
     git \
     python \
     python-pip --noconfirm
