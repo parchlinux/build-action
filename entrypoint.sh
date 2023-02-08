@@ -1,14 +1,14 @@
 
 # building ISO
-mkarchiso -v iso/ "${{ inputs.archiso_options }}"
+mkarchiso -v iso/ "$1"
 
-md5hash=$(md5 out/*.iso)
+md5hash=$(md5sum out/*.iso)
 
 # export variables
-export gh_apikey="${{ inputs.gh_apikey }}"
-export repo_name="${{ inputs.repo_name }}"
-export tag_name="${{ inputs.release_tag_name }}"
+export gh_apikey="$2"
+export repo_name="$3"
+export tag_name="$4"
 export tag_msg=$(git tag -l $tag_name --format='%(contents)')
 
 # Upload and Create release
-python /upload_assest.py
+python /release.py
