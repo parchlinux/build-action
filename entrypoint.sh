@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# building ISO
 mkarchiso -v iso/ $archiso_options
 
-md5hash=$(md5sum out/*.iso)
+pwd
+ls
+
+md5hash=$(md5sum out/*.iso) || exit $?
 
 export tag_msg=$(git tag -l $tag_name --format='%(contents)')
 
 # Upload and Create release
-python /release.py
+python /release.py || exit $?
