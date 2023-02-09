@@ -8,7 +8,7 @@ from github import Github, Repository, GitRelease
 
 gh_apikey = os.getenv("gh_apikey")
 repo_name = os.getenv("repo_name")
-tag_name = os.getenv("tag_name")
+tag_name = os.getenv("release_tag_name")
 tag_message = os.getenv("tag_msg", "")
 iso_hash = os.getenv("md5hash").split()  # [0]: name, [1]: md5 hash
 release_msg = f"""

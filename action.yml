@@ -4,6 +4,7 @@ inputs:
   archiso_options:
     description: "arch iso custom options"
     required: false
+    default: ""
   gh_apikey:
     description: "github apikey"
     required: true
@@ -19,8 +20,3 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.archiso_options }}
-    - ${{ inputs.gh_apikey }}
-    - ${{ inputs.repo_name }}
-    - ${{ inputs.release_tag_name }}
